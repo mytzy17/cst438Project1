@@ -1,5 +1,6 @@
 package com.example.cst438project1;
 
+import android.accounts.Account;
 import android.content.Context;
 
 import com.example.cst438project1.DB.AccountDAO;
@@ -68,4 +69,40 @@ public class AccountDatabaseTest {
         // Checking if the local variable List is the same as the recently inserted-into-the-DB List
         assertEquals(exampleAccount.getFirstname(), DatabaseCheck.get(0).getFirstname()); //THIS TEST IS SUCCESSFUL
     }
+
+    @Test
+    public void updateDatabase() {
+        AccountLog exampleAccount = new AccountLog("Username", "Password", "Firstname", "Lastname");
+
+        // Insert test account into database
+        accountLogDAO.insert(exampleAccount);
+
+        // User setter to update username, then update() to update the database
+        exampleAccount.setFirstname("Firstname1");
+        accountLogDAO.update(exampleAccount);
+
+        //Pull from database
+        List<AccountLog> DatabaseCheck = accountLogDAO.getAccountLog();
+        assertNotEquals(exampleAccount.getFirstname(), DatabaseCheck.get(0).getFirstname()); //Test Case successful
+    }
+
+    @Test
+    public void deleteFromDatabase() {
+        AccountLog exampleAccount = new AccountLog("Username", "Password", "Firstname", "Lastname");
+
+        // Insert test account into database
+        accountLogDAO.insert(exampleAccount);
+
+        // Pull from database and retrieve recently added account
+        List<AccountLog> DatabaseCheck = accountLogDAO.getAccountLog();
+        AccountLog deleteLog = DatabaseCheck.get(0);
+
+        // Delete account and pull from database again
+        accountLogDAO.delete(deleteLog);
+        List<AccountLog> DatabaseRecheck = accountLogDAO.getAccountLog();
+
+        // There shouldn't be any database entries, thus the Database size is 0
+        assertEquals(0, DatabaseRecheck.size()); // Test case successful
+    }
+
 }
