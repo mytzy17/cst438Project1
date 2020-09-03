@@ -9,6 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".HomePageActivity"></activity>
+        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".ViewProfileActivity" />
+        <activity android:name=".AddCourseActivity" />
+        <activity android:name=".EnrollCourseActivity" />
+        <activity android:name=".ViewGradeActivity" />
+        <activity android:name=".AddGradeActivity" />
+        <activity android:name=".ViewAssignmentActivity" />
+        <activity android:name=".AddAssignmentActivity" />
+        <activity android:name=".CreateAccountActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
