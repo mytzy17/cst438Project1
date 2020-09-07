@@ -32,6 +32,7 @@ public class AccountLog {
         this.lastname = lastname;
     }
 
+    // All getters and setters
     public int getAccountId() {
         return mAccountId;
     }
