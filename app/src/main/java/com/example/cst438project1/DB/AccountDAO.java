@@ -11,7 +11,7 @@ import java.util.List;
 @Dao
 public interface AccountDAO {
 
-    // Account table for insert, update, and delete commands
+    // Account table for insert, update, and delete commands. All Test cases created.
     @Insert
     void insert(AccountLog... accountLogs);
 
