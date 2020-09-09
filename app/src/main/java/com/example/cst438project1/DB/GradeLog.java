@@ -29,11 +29,9 @@ public class GradeLog {
         this.categoryID = categoryID;
     }
 
-    public int getmGradeId() {
-        return mGradeId;
-    }
+    public int getGradeId() { return mGradeId; }
 
-    public void setmGradeId(int mGradeId) {
+    public void setGradeId(int mGradeId) {
         this.mGradeId = mGradeId;
     }
 
