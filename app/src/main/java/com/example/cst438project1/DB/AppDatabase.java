@@ -13,7 +13,6 @@ import androidx.room.RoomDatabase;
 
 public abstract class AppDatabase extends RoomDatabase {
     public static final String databaseName = "database-account-log";
-    //public static final String databaseName2 = "database-course-log";
 
     //this is the AccountLog DB
     public static final String ACCOUNTLOG_TABLE = "accountlog_table";

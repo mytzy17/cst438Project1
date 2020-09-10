@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.example.cst438project1.DB.AccountDAO;
 import com.example.cst438project1.DB.AccountLog;
 import com.example.cst438project1.DB.AppDatabase;
+import com.example.cst438project1.DB.CourseDAO;
+import com.example.cst438project1.DB.CourseDatabase;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
@@ -24,7 +26,10 @@ public class CreateAccountActivity extends AppCompatActivity {
     EditText username;
     EditText password;
     private AccountDAO accountLogDAO;
+    private CourseDAO courseDAO;
+
     private AppDatabase db;
+    private CourseDatabase db2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +39,14 @@ public class CreateAccountActivity extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build();
 
+
+        db2 = Room.databaseBuilder(getApplicationContext(), CourseDatabase.class, CourseDatabase.databaseCourses)
+                .allowMainThreadQueries()
+                .build();
+
         accountLogDAO = db.getAccountDAO();
+        courseDAO = db2.getCourseDAO();
+
 
         firstname = findViewById(R.id.firstname);
         lastname = findViewById(R.id.lastname);
