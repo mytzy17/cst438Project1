@@ -31,6 +31,10 @@ public interface AccountDAO {
     @Query("SELECT * FROM " + AppDatabase.ACCOUNTLOG_TABLE + " WHERE mAccountID = :accountID")
     AccountLog getAccountWithId(int accountID);
 
+    //Added just in case we needed it
+    @Query("SELECT * FROM " + AppDatabase.ACCOUNTLOG_TABLE + " WHERE username = :user")
+    AccountLog getUserByName(String user);
+
     // Query based off with similar username & password
     @Query("SELECT * FROM " + AppDatabase.ACCOUNTLOG_TABLE + " WHERE username LIKE :user AND " + " password LIKE :pass LIMIT 1")
     boolean findCredentials(String user, String pass);
@@ -38,4 +42,7 @@ public interface AccountDAO {
     // Query to find all accounts username & password
     @Query("SELECT * FROM " + AppDatabase.ACCOUNTLOG_TABLE + " WHERE username = :user AND " + " password = :pass LIMIT 1")
     AccountLog findAccount(String user, String pass);
+
+    @Insert
+    void addUser(AccountLog user);
 }

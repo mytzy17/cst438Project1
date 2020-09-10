@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("ExitApp", "Exit App call was called");
-                //this will make it close anywhere where the user is
                 finish();
             }
         });
