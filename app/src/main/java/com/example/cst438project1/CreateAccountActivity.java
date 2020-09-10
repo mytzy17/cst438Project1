@@ -3,6 +3,7 @@ package com.example.cst438project1;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,11 +23,18 @@ public class CreateAccountActivity extends AppCompatActivity {
     EditText lastname;
     EditText username;
     EditText password;
+    private AccountDAO accountLogDAO;
+    private AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, AppDatabase.databaseName)
+                .allowMainThreadQueries()
+                .build();
+
+        accountLogDAO = db.getAccountDAO();
 
         firstname = findViewById(R.id.firstname);
         lastname = findViewById(R.id.lastname);
@@ -55,13 +63,18 @@ public class CreateAccountActivity extends AppCompatActivity {
                 }
 
                 //Info comes from AccountLog, user info
-                AccountLog user = AppDatabase.getAppDatabase(CreateAccountActivity.this).getAccountDAO().getUserByName(userName);
+                //AccountLog user = AppDatabase.getAppDatabase(CreateAccountActivity.this).getAccountDAO().getUserByName(userName);
+                AccountLog user = new AccountLog(userName,passWord , firstName, lastName);
 
-                if(user == null){
+                // Inserting test account into database
+                //accountLogDAO.insert(user);
+
+                boolean accountExistsAlready = accountLogDAO.findCredentials(userName, passWord);
+
+                if(!accountExistsAlready){
                     //Adds a new user into the database
-                    AccountLog newUser = new AccountLog(firstName, lastName, userName, passWord);
-                    AccountDAO userDAO = AppDatabase.getAppDatabase(CreateAccountActivity.this).getAccountDAO();
-                    userDAO.addUser(newUser);
+                    AccountLog newUser = new AccountLog(userName, passWord, firstName, lastName);
+                    accountLogDAO.insert(newUser);
 
                     //Log Record needed I think, code below
 
@@ -81,6 +94,5 @@ public class CreateAccountActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

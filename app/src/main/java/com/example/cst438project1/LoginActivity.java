@@ -1,6 +1,7 @@
 package com.example.cst438project1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,11 +19,18 @@ public class LoginActivity extends AppCompatActivity {
     Button login;
     EditText username;
     EditText password;
+    private AccountDAO accountLogDAO;
+    private AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, AppDatabase.databaseName)
+                .allowMainThreadQueries()
+                .build();
+
+        accountLogDAO = db.getAccountDAO();
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
@@ -36,16 +44,23 @@ public class LoginActivity extends AppCompatActivity {
                 String passWord = password.getText().toString();
 
                 //Gets the info from the DB
-                AccountDAO userDAO = AppDatabase.getAppDatabase(LoginActivity.this).getAccountDAO();
+                //AccountDAO userDAO = AppDatabase.getAppDatabase(LoginActivity.this).getAccountDAO();
                 //Believe it is findAccount and not findCredentials (not sure)
-                AccountLog user = userDAO.findAccount(userName, passWord);
-
-                if(user == null){
+                boolean getAccount = accountLogDAO.findCredentials(userName, passWord);
+                AccountLog testUser = accountLogDAO.findAccount(userName, passWord);
+                if(!getAccount){
                     //user cannot login in
                     Toast.makeText(getApplicationContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
-                    finish();
+                    //finish();
+                    System.out.println(userName);
+                    System.out.println(passWord);
+                    System.out.println();
+                    System.out.println(testUser.getUsername());
+                    System.out.println(testUser.getPassword());
                 }else{
+                    System.out.println("IT WORKED!");
                     Intent i = new Intent(LoginActivity.this, MenuActivity.class);
+                    AccountLog user = accountLogDAO.findAccount(userName, passWord);
                     i.putExtra("username", user.getAccountId());
                     startActivity(i);
 
