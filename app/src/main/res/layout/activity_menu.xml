@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A2B7C1"
+    android:orientation="vertical"
+    tools:context=".MenuActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:fontFamily="@font/eater"
+        android:gravity="center"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:text="Main Menu"
+        android:textColor="#0823B5" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anton"
+                android:text="Logged in as: "
+                android:textColor="#009688"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/logged_in_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/alegreya_sc_black"
+                android:text="UserName"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/addCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6470B5"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center_horizontal"
+        android:text="Add Course"
+        android:textColor="#08D8F3"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/enrollCourseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3A54E6"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center_horizontal"
+        android:text="Enroll In A Course"
+        android:textColor="#08D8F3"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/addGradeCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6470B5"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center_horizontal"
+        android:text="Add Grade Category"
+        android:textColor="#08D8F3"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/addAssignment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3A54E6"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center_horizontal"
+        android:text="Add Assignment"
+        android:textColor="#08D8F3"
+        android:textSize="24sp" />
+
+
+    <Button
+        android:id="@+id/viewGradeList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6470B5"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center_horizontal"
+        android:text="View Assignments/Grades"
+        android:textColor="#08D8F3"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/viewGradeSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3A54E6"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center_horizontal"
+        android:text="View Grade Summary"
+        android:textColor="#08D8F3"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/returnHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6470B5"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center_horizontal"
+        android:text="LogOut"
+        android:textColor="#08D8F3"
+        android:textSize="24sp" />
+
+</LinearLayout>

@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:orientation="vertical">
+    android:background="#A2B7C1"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -31,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:background="#75ACD8"
                 android:fontFamily="@font/alegreya_sc_black"
-                android:text="Create Username"
+                android:text="Username"
                 android:textSize="20sp" />
 
             <EditText
@@ -47,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:background="#75ACD8"
                 android:fontFamily="@font/alegreya_sc_black"
-                android:text="Create Password"
+                android:text="Password"
                 android:textSize="20sp" />
 
             <EditText
