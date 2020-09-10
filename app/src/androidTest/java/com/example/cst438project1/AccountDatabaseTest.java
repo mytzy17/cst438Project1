@@ -19,7 +19,9 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(AndroidJUnit4.class)
 public class AccountDatabaseTest {
@@ -103,6 +105,49 @@ public class AccountDatabaseTest {
 
         // There shouldn't be any database entries, thus the Database size is 0
         assertEquals(0, DatabaseRecheck.size()); // Test case successful
+    }
+
+    @Test
+    public void checkCredentials() {
+        AccountLog exampleAccount = new AccountLog("Username", "Password", "Firstname", "Lastname");
+        AccountLog exampleAccount2 = new AccountLog("BillyBobbo", "1234", "Billy", "Bob");
+        accountLogDAO.insert(exampleAccount);
+        accountLogDAO.insert(exampleAccount2);
+
+        // Check if credentials are true
+        boolean login = accountLogDAO.findCredentials("BillyBobbo", "1234");
+
+        assertTrue(login); // This test is successful
+    }
+
+    @Test
+    public void checkCredentialsFalse() {
+        AccountLog exampleAccount = new AccountLog("Username", "Password", "Firstname", "Lastname");
+        AccountLog exampleAccount2 = new AccountLog("BillyBobbo", "1234", "Billy", "Bob");
+        accountLogDAO.insert(exampleAccount);
+        accountLogDAO.insert(exampleAccount2);
+
+        // Mixed and matched usernames and passwords so they're both incorrect
+        boolean login = accountLogDAO.findCredentials("Username", "1234");
+        boolean loginPassword = accountLogDAO.findCredentials("BillyBobbo", "Password");
+
+        // Should return false
+        assertFalse(login); // This test is successful
+        assertFalse(loginPassword); // This test is successful
+    }
+
+    @Test
+    public void pullFromDatabase() {
+        AccountLog exampleAccount = new AccountLog("Username", "Password", "Firstname", "Lastname");
+        AccountLog exampleAccount2 = new AccountLog("BillyBobbo", "1234", "Billy", "Bob");
+        accountLogDAO.insert(exampleAccount);
+        accountLogDAO.insert(exampleAccount2);
+
+        // Grabs a specific account, given the correct username and password
+        AccountLog pulledAccount = accountLogDAO.findAccount("Username", "Password");
+
+        // Ensure the entered account and pulled account are the same
+        assertEquals(exampleAccount.getFirstname(), pulledAccount.getFirstname()); // This test is successful
     }
 
 }

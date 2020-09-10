@@ -7,7 +7,6 @@ import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
 @Database (entities = {AccountLog.class}, version = 1)
-//@Database (entities = {CourseLog.class}, version=1)
 //Can put a type converter here IF we need one
 
 public abstract class AppDatabase extends RoomDatabase {
