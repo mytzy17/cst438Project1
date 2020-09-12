@@ -15,7 +15,7 @@ public class ViewProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile);
 
-        TextView usernameTextView = findViewById(R.id.userName);
+        TextView usernameTextView = findViewById(R.id.usernameTextView);
         TextView fullNameTextView = findViewById(R.id.fullName);
         TextView courseTextView = findViewById(R.id.courseTextView);
 
@@ -46,6 +46,10 @@ public class ViewProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Create our intent
                 Intent i = new Intent(ViewProfileActivity.this, EditProfileActivity.class);
+                i.putExtra("username", userName);
+                i.putExtra("fName", fName);
+                i.putExtra("lName", lName);
+                i.putExtra("password", passWord);
                 startActivity(i);
             }
         });
