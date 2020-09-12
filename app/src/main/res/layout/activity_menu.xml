@@ -128,4 +128,15 @@
         android:textColor="#08D8F3"
         android:textSize="24sp" />
 
+    <Button
+        android:id="@+id/profileButton"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:background="#17CFBA"
+        android:baselineAligned="false"
+        android:fontFamily="@font/bungee_inline"
+        android:text="Profile"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp" />
+
 </LinearLayout>
