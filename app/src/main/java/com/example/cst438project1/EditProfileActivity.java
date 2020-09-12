@@ -13,7 +13,7 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        EditText userName = findViewById(R.id.userName);
+        EditText userName = findViewById(R.id.role);
         EditText newPassword = findViewById(R.id.newPassword);
         EditText newEmail = findViewById(R.id.newEmail);
         Button passwordChangeButton = findViewById(R.id.passwordChangeButton);

@@ -4,10 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 
 public class ViewProfileActivity extends AppCompatActivity {
 
@@ -16,19 +15,17 @@ public class ViewProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile);
 
-        EditText usernameTextView = findViewById(R.id.userName);
-        EditText fNameTextView = findViewById(R.id.firstName);
-        EditText lNameTextView = findViewById(R.id.lastName);
-        EditText courseTextView = findViewById(R.id.courseTextView);
+        TextView usernameTextView = findViewById(R.id.userName);
+        TextView fullNameTextView = findViewById(R.id.fullName);
+        TextView courseTextView = findViewById(R.id.courseTextView);
 
         final String userName = getIntent().getStringExtra("username");
         final String passWord = getIntent().getStringExtra("password");
         final String fName = getIntent().getStringExtra("fName");
         final String lName = getIntent().getStringExtra("lName");
 
-        usernameTextView.setText(userName);
-        fNameTextView.setText(fName);
-        lNameTextView.setText(lName);
+        usernameTextView.setText("Your Username: " + userName);
+        fullNameTextView.setText(fName + " " + lName);
 
         courseTextView.setText("Tested courses");
 
