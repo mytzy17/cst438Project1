@@ -42,8 +42,12 @@ public class AssignmentLog {
         this.assignmentId = assignmentId;
     }
 
-    public int getmAssignmentId() {
+    public int getAssignmentId() {
         return mAssignmentId;
+    }
+
+    public void setAssignmentId(int mAssignmentId) {
+        this.mAssignmentId = mAssignmentId;
     }
 
     public String getDetails() {
@@ -92,13 +96,5 @@ public class AssignmentLog {
 
     public void setCourseId(String courseId) {
         this.courseId = courseId;
-    }
-
-    public String getAssignmentId() {
-        return assignmentId;
-    }
-
-    public void setAssignmentId(String assignmentId) {
-        this.assignmentId = assignmentId;
     }
 }

@@ -36,8 +36,12 @@ public class AssignmentGradeLog {
         this.gradeId = gradeId;
     }
 
-    public int getmAssignmentGradeId() {
+    public int getAssignmentGradeId() {
         return mAssignmentGradeId;
+    }
+
+    public void setAssignmentGradeId(int mAssignmentGradeId) {
+        this.mAssignmentGradeId = mAssignmentGradeId;
     }
 
     public float getGrade() {
