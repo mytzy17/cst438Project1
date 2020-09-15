@@ -15,9 +15,9 @@ public class ViewProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile);
 
-        TextView usernameTextView = findViewById(R.id.usernameTextView);
+        TextView usernameTextView = findViewById(R.id.endDateTextView);
         TextView fullNameTextView = findViewById(R.id.fullName);
-        TextView courseTextView = findViewById(R.id.courseTextView);
+        TextView courseTextView = findViewById(R.id.instructorTextView);
 
         final String userName = getIntent().getStringExtra("username");
         final String passWord = getIntent().getStringExtra("password");
@@ -29,7 +29,7 @@ public class ViewProfileActivity extends AppCompatActivity {
 
         courseTextView.setText("Tested courses");
 
-        Button mainMenuButton = findViewById(R.id.mainMenuButton);
+        Button mainMenuButton = findViewById(R.id.saveCourseButton);
         Button editProfileButton = findViewById(R.id.editProfileButton);
 
         mainMenuButton.setOnClickListener(new View.OnClickListener() {

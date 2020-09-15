@@ -9,20 +9,20 @@ public class CourseLog {
     @PrimaryKey(autoGenerate = true)
     private int courseID;
 
-    @ColumnInfo(name = "instructor")
+    @ColumnInfo(name = "instructor") //
     private String instructor;
 
-    @ColumnInfo(name = "title")
+    @ColumnInfo(name = "title") //
     private String title;
 
     @ColumnInfo(name = "desc")
     private String desc;
 
     // Both dates might need to be changed to use a TypeConverter in the future
-    @ColumnInfo(name = "startDate")
+    @ColumnInfo(name = "startDate") //
     private String startDate;
 
-    @ColumnInfo(name = "endDate")
+    @ColumnInfo(name = "endDate") //
     private String endDate;
 
     public CourseLog(String instructor, String title, String desc, String startDate, String endDate) {

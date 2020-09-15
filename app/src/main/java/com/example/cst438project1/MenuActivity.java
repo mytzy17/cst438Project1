@@ -17,24 +17,37 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         Button profileButton = findViewById(R.id.profileButton);
+        Button addCourseButton = findViewById(R.id.addCourse);
         final String userName = getIntent().getStringExtra("username");
         final String passWord = getIntent().getStringExtra("password");
         final String fName = getIntent().getStringExtra("fName");
         final String lName = getIntent().getStringExtra("lName");
 
+        addCourseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Create our intent
+                Intent i = new Intent(MenuActivity.this, AddCourseActivity.class);
+
+//                i.putExtra("username", userName);
+//                i.putExtra("fName", fName);
+//                i.putExtra("lName", lName);
+//                i.putExtra("password", passWord);
+                startActivity(i);
+            }
+        });
+
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            //Create our intent
+            Intent i = new Intent(MenuActivity.this, ViewProfileActivity.class);
 
-
-                //Create our intent
-                Intent i = new Intent(MenuActivity.this, ViewProfileActivity.class);
-
-                i.putExtra("username", userName);
-                i.putExtra("fName", fName);
-                i.putExtra("lName", lName);
-                i.putExtra("password", passWord);
-                startActivity(i);
+            i.putExtra("username", userName);
+            i.putExtra("fName", fName);
+            i.putExtra("lName", lName);
+            i.putExtra("password", passWord);
+            startActivity(i);
             }
         });
 
