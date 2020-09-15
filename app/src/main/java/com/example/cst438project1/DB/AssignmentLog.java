@@ -28,18 +28,14 @@ public class AssignmentLog {
     @ColumnInfo(name = "courseId")
     private String courseId;
 
-    @ColumnInfo(name = "assignmentId")
-    private String assignmentId;
 
-
-    public AssignmentLog(String details, double maxScore, double earnedScore, String dueDate, String categoryId, String courseId, String assignmentId) {
+    public AssignmentLog(String details, double maxScore, double earnedScore, String dueDate, String categoryId, String courseId) {
         this.details = details;
         this.maxScore = maxScore;
         this.earnedScore = earnedScore;
         this.dueDate = dueDate;
         this.categoryId = categoryId;
         this.courseId = courseId;
-        this.assignmentId = assignmentId;
     }
 
     public int getAssignmentId() {

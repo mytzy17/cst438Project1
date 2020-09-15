@@ -36,8 +36,4 @@ public interface AssignmentDAO {
     //Query Course ID
     @Query("SELECT * FROM " + AssignmentDatabase.ASSIGNMENTLOG_TABLE + " WHERE courseId = :courseId")
     List<AssignmentLog> getAssignmentsByCourseId(int courseId);
-
-    //Query Assignment ID
-    @Query("SELECT * FROM " + AssignmentDatabase.ASSIGNMENTLOG_TABLE + " WHERE assignmentId = :assignmentId")
-    AssignmentLog getAssignmentsByAssignmentId(int assignmentId);
 }
