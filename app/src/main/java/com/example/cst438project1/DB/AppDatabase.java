@@ -31,11 +31,13 @@ public abstract class AppDatabase extends RoomDatabase {
     //public static final String COURSELOG_TABLE = "courselog_table";
 
 
+
     //Functions
     public static AppDatabase instance;
     public abstract AccountDAO getAccountDAO();
     //public abstract CourseDAO getCourseDAO();
     //public abstract GradeDAO getGradeDAO();
+    //public abstract EnrollDAO getEnrollDAO();
 
 
     public static AppDatabase getAppDatabase(final Context c){
