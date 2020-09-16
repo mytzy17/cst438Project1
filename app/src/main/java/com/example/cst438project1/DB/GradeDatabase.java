@@ -11,4 +11,5 @@ public abstract class GradeDatabase extends RoomDatabase {
     public static final String GRADE_LOG = "gradelog_table";
 
     public abstract GradeDAO getGradeDAO();
+    
 }
