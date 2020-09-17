@@ -51,13 +51,14 @@ public class EnrollCourseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enroll_course);
 
+        // Get the enroll database
         db = Room.databaseBuilder(getApplicationContext(), EnrollDatabase.class, EnrollDatabase.databaseName)
                 .allowMainThreadQueries()
                 .build();
 
         enrollDAO = db.getEnrollDAO();
 
-
+        // Get the course database
         db2 = Room.databaseBuilder(getApplicationContext(), CourseDatabase.class, CourseDatabase.COURSELOG_TABLE)
                 .allowMainThreadQueries()
                 .build();
@@ -77,6 +78,11 @@ public class EnrollCourseActivity extends AppCompatActivity {
 
         //Lists
         List<CourseLog> courses = getCourseArray();
+        ArrayList<String> courseTitles = new ArrayList<>();
+        for (CourseLog iterator: courses) {
+            String title = iterator.getTitle();
+            courseTitles.add(title);
+        }
         final List<EnrollLog> enrollments = getEnrollArray();
 
         for(EnrollLog e: enrollments){
@@ -105,7 +111,7 @@ public class EnrollCourseActivity extends AppCompatActivity {
 
         final Spinner sp = findViewById(R.id.courseSpinner);
 
-        ArrayAdapter<CourseLog> adapter = new ArrayAdapter<CourseLog>(this, android.R.layout.simple_spinner_item, courses){
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, courseTitles){
             @Override
             public boolean isEnabled(int position){
                 return !enrolled.get(position);
