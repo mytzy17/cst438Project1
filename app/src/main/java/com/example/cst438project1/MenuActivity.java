@@ -22,11 +22,16 @@ public class MenuActivity extends AppCompatActivity {
         Button addCourseButton = findViewById(R.id.addCourse);
         enrollButton = findViewById(R.id.enrollButton);
 
-        final String userName = getIntent().getStringExtra("username");
-        final String passWord = getIntent().getStringExtra("password");
-        final String fName = getIntent().getStringExtra("fName");
-        final String lName = getIntent().getStringExtra("lName");
 
+//        final String passWord = getIntent().getStringExtra("password");
+//        final String fName = getIntent().getStringExtra("fName");
+//        final String lName = getIntent().getStringExtra("lName");
+
+        final String[] information = getIntent().getStringArrayExtra("info");
+        final String userName = information[0];
+        final String passWord = information[3];
+        final String fName = information[1];
+        final String lName = information[2];
 
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,9 +59,7 @@ public class MenuActivity extends AppCompatActivity {
             Intent i = new Intent(MenuActivity.this, ViewProfileActivity.class);
 
             i.putExtra("username", userName);
-            i.putExtra("fName", fName);
-            i.putExtra("lName", lName);
-            i.putExtra("password", passWord);
+            i.putExtra("info", information);
             startActivity(i);
             }
         });

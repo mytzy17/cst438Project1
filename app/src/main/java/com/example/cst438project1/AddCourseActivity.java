@@ -31,7 +31,7 @@ public class AddCourseActivity extends AppCompatActivity {
                 .build();
         courseDAO = db.getCourseDAO();
 
-        Button saveCourseButton = findViewById(R.id.saveCourseButton);
+        Button saveCourseButton = findViewById(R.id.saveButton);
         final EditText courseTitleTextView = findViewById(R.id.courseTitleTextView);
         final EditText startDateTextView = findViewById(R.id.startDateTextView);
         final EditText endDateTextView = findViewById(R.id.endDateTextView);
