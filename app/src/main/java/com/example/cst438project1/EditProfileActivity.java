@@ -48,9 +48,11 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Create our intent
-                user.setPassword(newPass);
+                //user.setPassword(newPass);
                 Intent i = new Intent(EditProfileActivity.this, MenuActivity.class);
+                // Sets the user's new password then update's it's reference in the accountLogDAO
                 user.setPassword(newPass);
+                accountLogDAO.update(user);
                 i.putExtra("info", information);
                 startActivity(i);
             }
