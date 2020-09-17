@@ -43,6 +43,7 @@ public class ViewProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Create our intent
                 Intent i = new Intent(ViewProfileActivity.this, MenuActivity.class);
+                i.putExtra("info", information);
                 startActivity(i);
             }
         });

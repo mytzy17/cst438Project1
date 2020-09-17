@@ -61,7 +61,6 @@ public class AddCourseActivity extends AppCompatActivity {
 
                 //Info comes from AccountLog, user info
                 //AccountLog user = AppDatabase.getAppDatabase(CreateAccountActivity.this).getAccountDAO().getUserByName(userName);
-                CourseLog course = new CourseLog(instructor, courseTitle, description, startDate, endDate);
 
                 // Inserting test account into database
                 boolean courseExistsAlready = courseDAO.getCourseFromTitle(courseTitle);
