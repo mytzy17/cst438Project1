@@ -115,7 +115,6 @@ public class EnrollCourseActivity extends AppCompatActivity {
             public View getDropDownView(int position, View convertView, ViewGroup parent){
                 View v = super.getDropDownView(position, convertView, parent);
                 TextView textView = (TextView)v;
-
                 textView.setTextColor(!enrolled.get(position) ? Color.BLACK : Color.GRAY);
 
                 return v;
