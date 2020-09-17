@@ -21,6 +21,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private AccountDAO accountLogDAO;
     private AppDatabase db;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
