@@ -38,7 +38,7 @@ public class EnrollCourseActivity extends AppCompatActivity {
 
         enrollDAO = db2.getEnrollDAO();
 
-
+        //Hello just checking here
 
     }
 }
