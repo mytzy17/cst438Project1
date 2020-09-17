@@ -17,7 +17,7 @@ public interface EnrollDAO {
     void update( EnrollLog... enrollLogs);
 
     @Delete
-    void delete(EnrollLog Enrollment);
+    void delete(EnrollLog EnrollLogs);
 
     //General query for entire enrollLog
     @Query("SELECT * FROM " + EnrollDatabase.ENROLLMENTLOG_TABLE)
@@ -27,7 +27,10 @@ public interface EnrollDAO {
     @Query("SELECT * FROM " + EnrollDatabase.ENROLLMENTLOG_TABLE + " WHERE enrollId = :enrollId")
     EnrollLog getEnrollWithId(int enrollId);
 
+//    @Query("SELECT * FROM " + EnrollDatabase.ENROLLMENTLOG_TABLE + " WHERE userId = :userId")
+//    EnrollLog getEnrollByUserId(int userId);
+
     @Query("SELECT * FROM " + EnrollDatabase.ENROLLMENTLOG_TABLE + " WHERE userId = :userId")
-    EnrollLog getEnrollByUserId(int userId);
+    List<EnrollLog> getEnrollByUserId(int userId);
 
 }

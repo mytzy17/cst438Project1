@@ -27,21 +27,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <Spinner
+                android:id="@+id/courseSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#75ACD8"
-                android:fontFamily="@font/alegreya_sc_black"
-                android:text="Enroll In a Course"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/courseName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/anton"
-                android:hint="Type in course name"
-                android:textSize="14sp" />
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" />
 
             <Button
                 android:id="@+id/enrollButton"
