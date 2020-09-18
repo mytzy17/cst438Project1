@@ -19,17 +19,6 @@
         android:textColor="#0823B5" />
 
     <Button
-        android:id="@+id/addCourse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#6470B5"
-        android:fontFamily="@font/bungee_inline"
-        android:gravity="center_horizontal"
-        android:text="Add Course"
-        android:textColor="#08D8F3"
-        android:textSize="24sp" />
-
-    <Button
         android:id="@+id/enrollButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,27 +30,26 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/addGradeCategory"
+        android:id="@+id/addCourse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#6470B5"
-        android:fontFamily="@font/bungee_inline"
-        android:gravity="center_horizontal"
-        android:text="Add Grade Category"
-        android:textColor="#08D8F3"
-        android:textSize="24sp" />
+    android:background="#6470B5"
+    android:fontFamily="@font/bungee_inline"
+    android:gravity="center_horizontal"
+    android:text="Add Course"
+    android:textColor="#08D8F3"
+    android:textSize="24sp" />
 
     <Button
-        android:id="@+id/addAssignment"
+        android:id="@+id/editCourse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#3A54E6"
         android:fontFamily="@font/bungee_inline"
         android:gravity="center_horizontal"
-        android:text="Add Assignment"
+        android:text="View Course"
         android:textColor="#08D8F3"
         android:textSize="24sp" />
-
 
     <Button
         android:id="@+id/viewGradeList"
@@ -75,13 +63,13 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/viewGradeSummary"
+        android:id="@+id/profileButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#3A54E6"
         android:fontFamily="@font/bungee_inline"
         android:gravity="center_horizontal"
-        android:text="View Grade Summary"
+        android:text="View Profile"
         android:textColor="#08D8F3"
         android:textSize="24sp" />
 
@@ -96,15 +84,5 @@
         android:textColor="#08D8F3"
         android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/profileButton"
-        android:layout_width="165dp"
-        android:layout_height="wrap_content"
-        android:background="#17CFBA"
-        android:baselineAligned="false"
-        android:fontFamily="@font/bungee_inline"
-        android:text="Profile"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="18sp" />
 
 </LinearLayout>
