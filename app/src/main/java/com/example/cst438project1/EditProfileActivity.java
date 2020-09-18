@@ -34,26 +34,35 @@ public class EditProfileActivity extends AppCompatActivity {
 
         final String[] information = getIntent().getStringArrayExtra("info");
         final String userName = information[0];
-        final String passWord = information[3];
-        final String fName = information[1];
-        final String lName = information[2];
+
 
         final AccountLog user = accountLogDAO.getUserByName(userName);
         EditText newPassTextView = findViewById(R.id.newPassword);
 
         final String newPass = newPassTextView.getText().toString();
-
+        information[3] = newPass;
         Button newPassButton = findViewById(R.id.passwordChangeButton);
+        Button menuButton = findViewById(R.id.menuButton);
 
         newPassButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //Create our intent
                 Intent i = new Intent(EditProfileActivity.this, MenuActivity.class);
                 // Sets the user's new password then update's it's reference in the accountLogDAO
                 user.setPassword(newPass);
                 accountLogDAO.update(user);
-//                i.putExtra("info", information);
+                i.putExtra("info", information);
+                startActivity(i);
+            }
+        });
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(EditProfileActivity.this, MenuActivity.class);
+                i.putExtra("info", information);
                 startActivity(i);
             }
         });
