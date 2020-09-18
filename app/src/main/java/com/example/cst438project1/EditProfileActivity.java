@@ -53,7 +53,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 // Sets the user's new password then update's it's reference in the accountLogDAO
                 user.setPassword(newPass);
                 accountLogDAO.update(user);
-                i.putExtra("info", information);
+//                i.putExtra("info", information);
                 startActivity(i);
             }
         });

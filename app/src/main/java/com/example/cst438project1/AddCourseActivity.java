@@ -71,7 +71,7 @@ public class AddCourseActivity extends AppCompatActivity {
                     Intent i = new Intent(AddCourseActivity.this, MenuActivity.class);
                     startActivity(i);
                 }else{
-                    //user already exists
+                    //course already exists
                     AlertDialog.Builder builder = new AlertDialog.Builder(AddCourseActivity.this);
                     builder.setMessage("Try again, course  not available");
                     builder.setPositiveButton("OK", null);
