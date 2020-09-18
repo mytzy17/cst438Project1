@@ -56,6 +56,7 @@ public class EnrollTest {
 
     @Test
     public void setEnrollment(){
+        //Asserts that user enrolls the course that are accessable
         EnrollLog enrollment = new EnrollLog();
         enrollment.setCourseId(438);
         enrollment.setUserId(17);

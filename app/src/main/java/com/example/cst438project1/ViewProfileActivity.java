@@ -34,7 +34,6 @@ public class ViewProfileActivity extends AppCompatActivity {
         mainMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Create our intent
                 Intent i = new Intent(ViewProfileActivity.this, MenuActivity.class);
                 i.putExtra("info", information);
                 startActivity(i);
@@ -44,7 +43,6 @@ public class ViewProfileActivity extends AppCompatActivity {
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Create our intent
                 Intent i = new Intent(ViewProfileActivity.this, EditProfileActivity.class);
                 i.putExtra("info", information);
                 startActivity(i);

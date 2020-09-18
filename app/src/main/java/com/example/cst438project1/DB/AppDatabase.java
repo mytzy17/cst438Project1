@@ -40,6 +40,13 @@ public abstract class AppDatabase extends RoomDatabase {
     //public abstract EnrollDAO getEnrollDAO();
 
 
+    /**
+     * Get app database.
+     *
+     * @param c is the context
+     * @return the app database
+     */
+
     public static AppDatabase getAppDatabase(final Context c){
         if(instance == null){
             instance = Room.databaseBuilder(c.getApplicationContext(), AppDatabase.class, "Grade Database").allowMainThreadQueries().fallbackToDestructiveMigration().build();
