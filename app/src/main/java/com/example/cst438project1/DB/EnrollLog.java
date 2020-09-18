@@ -18,6 +18,8 @@ public class EnrollLog {
     @ColumnInfo(name = "courseId")
     private int courseId;
 
+    public EnrollLog(){ }
+
     public EnrollLog(int userId, int courseId){
         this.userId = userId;
         this.courseId = courseId;
