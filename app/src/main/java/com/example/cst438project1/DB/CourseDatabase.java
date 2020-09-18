@@ -7,7 +7,7 @@ import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
 @Database (entities = {CourseLog.class}, version=1)
-//Can put a type converter here IF we need one
+
 
 public abstract class CourseDatabase extends RoomDatabase {
     public static final String databaseCourses = "database-course-log";

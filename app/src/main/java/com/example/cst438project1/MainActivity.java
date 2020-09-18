@@ -1,4 +1,3 @@
-//HomePage Activity: User will be able either register, login, view logs, or exit App
 package com.example.cst438project1;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +11,10 @@ import android.widget.Button;
 
 import com.example.cst438project1.DB.AccountDAO;
 import com.example.cst438project1.DB.AppDatabase;
+
+/**
+ * This activity enables the user to access the create account
+ */
 
 public class MainActivity extends AppCompatActivity {
     private AccountDAO accountLogDAO;
@@ -34,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("MainActivity", "CreateAccount Activity was called");
-
                 Intent i = new Intent(MainActivity.this, CreateAccountActivity.class);
                 startActivity(i);
             }
@@ -62,4 +64,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
+
+
+
 }

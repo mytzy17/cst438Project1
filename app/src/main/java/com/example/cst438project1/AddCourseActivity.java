@@ -16,6 +16,12 @@ import com.example.cst438project1.DB.CourseDAO;
 import com.example.cst438project1.DB.CourseDatabase;
 import com.example.cst438project1.DB.CourseLog;
 
+
+/**
+ * This activity enables the user to add a new course to the database
+ * by adding multiple details about the new course
+ */
+
 public class AddCourseActivity extends AppCompatActivity {
 
     private CourseDatabase db;

@@ -16,6 +16,12 @@ import com.example.cst438project1.DB.AccountLog;
 import com.example.cst438project1.DB.AppDatabase;
 import com.example.cst438project1.DB.CourseDAO;
 
+
+/**
+ * EditProfileActivity enables a user to change their password
+ * and access the main menu
+ */
+
 public class EditProfileActivity extends AppCompatActivity {
 
     private AccountDAO accountLogDAO;
