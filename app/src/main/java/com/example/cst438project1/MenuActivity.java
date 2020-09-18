@@ -8,6 +8,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.cst438project1.DB.AccountLog;
+import com.example.cst438project1.DB.AppDatabase;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -21,11 +27,6 @@ public class MenuActivity extends AppCompatActivity {
         Button profileButton = findViewById(R.id.profileButton);
         Button addCourseButton = findViewById(R.id.addCourse);
         enrollButton = findViewById(R.id.enrollButton);
-
-
-//        final String passWord = getIntent().getStringExtra("password");
-//        final String fName = getIntent().getStringExtra("fName");
-//        final String lName = getIntent().getStringExtra("lName");
 
         final String[] information = getIntent().getStringArrayExtra("info");
         final String userName = information[0];

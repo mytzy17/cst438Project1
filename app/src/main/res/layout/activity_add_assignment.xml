@@ -7,5 +7,4 @@
     tools:context=".AddAssignmentActivity"
     android:orientation="vertical">
 
-
 </LinearLayout>

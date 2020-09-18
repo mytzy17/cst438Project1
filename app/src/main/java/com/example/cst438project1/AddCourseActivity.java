@@ -78,7 +78,6 @@ public class AddCourseActivity extends AppCompatActivity {
 
                     builder.show();
                 }
-
             }
         });
     }
