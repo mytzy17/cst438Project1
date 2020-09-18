@@ -31,7 +31,7 @@ public class AddCourseActivity extends AppCompatActivity {
                 .build();
         courseDAO = db.getCourseDAO();
 
-        Button saveCourseButton = findViewById(R.id.saveCourseButton);
+        Button saveCourseButton = findViewById(R.id.saveButton);
         final EditText courseTitleTextView = findViewById(R.id.courseTitleTextView);
         final EditText startDateTextView = findViewById(R.id.startDateTextView);
         final EditText endDateTextView = findViewById(R.id.endDateTextView);
@@ -59,26 +59,19 @@ public class AddCourseActivity extends AppCompatActivity {
                     return;
                 }
 
-                //Info comes from AccountLog, user info
-                //AccountLog user = AppDatabase.getAppDatabase(CreateAccountActivity.this).getAccountDAO().getUserByName(userName);
-                CourseLog course = new CourseLog(instructor, courseTitle, description, startDate, endDate);
-
-                // Inserting test account into database
+              
                 boolean courseExistsAlready = courseDAO.getCourseFromTitle(courseTitle);
 
                 if(!courseExistsAlready){
-                    //Adds a new user into the database
+                    //Adds a new course into the database
                     CourseLog newCourse = new CourseLog(instructor, courseTitle, description, startDate, endDate);
                     courseDAO.insert(newCourse);
 
-                    //Log Record needed I think, code below
-
-                    //notifies the user that their account has been created
                     Toast.makeText(getApplicationContext(), "Course created successfully", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(AddCourseActivity.this, MenuActivity.class);
                     startActivity(i);
                 }else{
-                    //user already exists
+                    //course already exists
                     AlertDialog.Builder builder = new AlertDialog.Builder(AddCourseActivity.this);
                     builder.setMessage("Try again, course  not available");
                     builder.setPositiveButton("OK", null);

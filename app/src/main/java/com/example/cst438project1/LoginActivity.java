@@ -61,7 +61,12 @@ public class LoginActivity extends AppCompatActivity {
                     System.out.println("IT WORKED!");
                     Intent i = new Intent(LoginActivity.this, MenuActivity.class);
                     AccountLog user = accountLogDAO.findAccount(userName, passWord);
+                    String[] info = {user.getUsername(), user.getFirstname(), user.getLastname(), user.getPassword()};
                     i.putExtra("username", user.getAccountId());
+                    i.putExtra("info", info);
+//                    i.putExtra("fName", user.getFirstname());
+//                    i.putExtra("lName", user.getLastname());
+//                    i.putExtra("password", passWord);
                     startActivity(i);
 
                 }

@@ -6,6 +6,11 @@ import android.content.Context;
 import com.example.cst438project1.DB.AccountDAO;
 import com.example.cst438project1.DB.AccountLog;
 import com.example.cst438project1.DB.AppDatabase;
+import com.example.cst438project1.DB.CourseDAO;
+import com.example.cst438project1.DB.CourseDatabase;
+import com.example.cst438project1.DB.CourseLog;
+import com.example.cst438project1.DB.EnrollDAO;
+import com.example.cst438project1.DB.EnrollDatabase;
 
 import org.junit.After;
 import org.junit.Before;
@@ -38,6 +43,13 @@ public class AccountDatabaseTest {
     private AccountDAO accountLogDAO;
     private AppDatabase db;
 
+    private EnrollDAO enrollDAO;
+    private EnrollDatabase dbEnroll;
+
+    private CourseDAO courseDAO;
+    private CourseDatabase dbCourse;
+
+
     @Before
     public void createDatabase() {
         //Create a room database
@@ -46,6 +58,20 @@ public class AccountDatabaseTest {
                 .build();
 
         accountLogDAO = db.getAccountDAO();
+
+        // Get the enroll database
+        dbEnroll = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(), EnrollDatabase.class)
+                .allowMainThreadQueries()
+                .build();
+
+        enrollDAO = dbEnroll.getEnrollDAO();
+
+        // Get the course database
+        dbCourse = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(), CourseDatabase.class)
+                .allowMainThreadQueries()
+                .build();
+
+        courseDAO = dbCourse.getCourseDAO();
     }
 
     @Before
@@ -105,6 +131,15 @@ public class AccountDatabaseTest {
 
         // There shouldn't be any database entries, thus the Database size is 0
         assertEquals(0, DatabaseRecheck.size()); // Test case successful
+    }
+
+    @Test
+    public void checkChangePassword(){
+        AccountLog testAccount = new AccountLog("username", "password", "firstname", "lastname");
+        final String newPass = "updatedPass";
+        testAccount.setPassword(newPass);
+
+        assertEquals(testAccount.getPassword(), newPass);
     }
 
     @Test
