@@ -55,17 +55,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //User will be taken to the View
-        Button viewLog = findViewById(R.id.viewLogs);
-        viewLog.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Will take us to the View Log Activity
-                Log.d("ViewLogActivity", "ViewLog Activity was called");
-                Intent i = new Intent(MainActivity.this, ViewProfileActivity.class);
-                startActivity(i);
-            }
-        }));
+//        //User will be taken to the View
+//        Button viewLog = findViewById(R.id.viewLogs);
+//        viewLog.setOnClickListener((new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //Will take us to the View Log Activity
+//                Log.d("ViewLogActivity", "ViewLog Activity was called");
+//                Intent i = new Intent(MainActivity.this, ViewProfileActivity.class);
+//                startActivity(i);
+//            }
+//        }));
 
         Button exitButton = findViewById(R.id.exitApp);
         exitButton.setOnClickListener(new View.OnClickListener() {

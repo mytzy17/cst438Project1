@@ -92,8 +92,9 @@ public class CreateAccountActivity extends AppCompatActivity {
 
                     //notifies the user that their account has been created
                     Toast.makeText(getApplicationContext(), "Account created successfully", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(CreateAccountActivity.this, LoginActivity.class);
-                    startActivity(i);
+                    finish();
+//                    Intent i = new Intent(CreateAccountActivity.this, LoginActivity.class);
+//                    startActivity(i);
                 }else{
                     //user already exists
                     AlertDialog.Builder builder = new AlertDialog.Builder(CreateAccountActivity.this);

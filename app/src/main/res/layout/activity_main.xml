@@ -42,23 +42,11 @@
         android:textColor="#08D8F3"
         android:textSize="24sp" />
 
-
-    <Button
-        android:id="@+id/viewLogs"
-        android:layout_width="match_parent"
-        android:layout_height="92dp"
-        android:background="#6470B5"
-        android:fontFamily="@font/bungee_inline"
-        android:gravity="center_horizontal"
-        android:text="View Logs"
-        android:textColor="#08D8F3"
-        android:textSize="24sp" />
-
     <Button
         android:id="@+id/exitApp"
         android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:background="#3A54E6"
+        android:background="#6470B5"
         android:fontFamily="@font/bungee_inline"
         android:gravity="center_horizontal"
         android:text="Exit"
