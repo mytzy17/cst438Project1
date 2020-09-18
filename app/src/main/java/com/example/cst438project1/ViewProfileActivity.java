@@ -17,14 +17,9 @@ public class ViewProfileActivity extends AppCompatActivity {
 
         TextView usernameTextView = findViewById(R.id.usernameTextView);
         TextView fullNameTextView = findViewById(R.id.fullName);
-        TextView courseTextView = findViewById(R.id.instructorTextView);
-
-
-//        final String passWord = getIntent().getStringExtra("password");
-//        final String fName = getIntent().getStringExtra("fName");
-//        final String lName = getIntent().getStringExtra("lName");
 
         final String[] information = getIntent().getStringArrayExtra("info");
+
         final String userName = information[0];
         final String passWord = information[3];
         final String fName = information[1];
@@ -32,8 +27,6 @@ public class ViewProfileActivity extends AppCompatActivity {
 
         usernameTextView.setText("Your Username: " + userName);
         fullNameTextView.setText(fName + " " + lName);
-
-        courseTextView.setText("Tested courses");
 
         Button mainMenuButton = findViewById(R.id.menuButton);
         Button editProfileButton = findViewById(R.id.editProfileButton);
