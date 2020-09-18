@@ -60,15 +60,19 @@ public class AddCourseActivity extends AppCompatActivity {
                 }
 
               
-                boolean courseExistsAlready = courseDAO.getCourseFromTitle(courseTitle);
+                boolean courseExistsAlready = courseDAO.courseExists(courseTitle);
 
                 if(!courseExistsAlready){
                     //Adds a new course into the database
                     CourseLog newCourse = new CourseLog(instructor, courseTitle, description, startDate, endDate);
+                    System.out.println(newCourse.getTitle());
+                    System.out.println(newCourse.getTitle());
                     courseDAO.insert(newCourse);
 
                     Toast.makeText(getApplicationContext(), "Course created successfully", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(AddCourseActivity.this, MenuActivity.class);
+                    final String[] information = getIntent().getStringArrayExtra("info");
+                    i.putExtra("info", information);
                     startActivity(i);
                 }else{
                     //course already exists

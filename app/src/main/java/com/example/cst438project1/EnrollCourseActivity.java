@@ -35,7 +35,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class EnrollCourseActivity extends AppCompatActivity {
+public class EnrollCourseActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Button enrollButton;
     private EnrollDAO enrollDAO;
@@ -47,6 +47,12 @@ public class EnrollCourseActivity extends AppCompatActivity {
     AtomicInteger userId;
     List<Boolean> enrolled;
     HashSet<Integer> enrollmentList = new HashSet<Integer>();
+
+    //Arrays for both Course and Enroll
+
+    List<EnrollLog> getEnrollArray(){
+        return enrollDAO.getEnrollByUserId(userId.get());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +67,7 @@ public class EnrollCourseActivity extends AppCompatActivity {
         enrollDAO = db.getEnrollDAO();
 
         // Get the course database
-        db2 = Room.databaseBuilder(getApplicationContext(), CourseDatabase.class, CourseDatabase.COURSELOG_TABLE)
+        db2 = Room.databaseBuilder(getApplicationContext(), CourseDatabase.class, CourseDatabase.databaseCourses)
                 .allowMainThreadQueries()
                 .build();
 
@@ -79,12 +85,14 @@ public class EnrollCourseActivity extends AppCompatActivity {
         }
 
         //Lists
-        List<CourseLog> courses = getCourseArray();
-        ArrayList<String> courseTitles = new ArrayList<>();
+        List<CourseLog> courses = courseDAO.getCourseLog();
+        System.out.println(courses.size());
+        System.out.println(courses.size());
+        ArrayList<CharSequence> courseTitles = new ArrayList<>();
 
 
         for (CourseLog iterator: courses) {
-            String title = iterator.getTitle();
+            CharSequence title = iterator.getTitle();
             courseTitles.add(title);
         }
         final List<EnrollLog> enrollments = getEnrollArray();
@@ -115,33 +123,48 @@ public class EnrollCourseActivity extends AppCompatActivity {
 
         final Spinner sp = findViewById(R.id.courseSpinner);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, courseTitles){
-            @Override
-            public boolean isEnabled(int position){
-                return !enrolled.get(position);
-            }
-
-            @Override
-            public View getDropDownView(int position, View convertView, ViewGroup parent){
-                View v = super.getDropDownView(position, convertView, parent);
-                TextView textView = (TextView)v;
-                textView.setTextColor(!enrolled.get(position) ? Color.BLACK : Color.GRAY);
-
-                return v;
-            }
-        };
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, courseTitles);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         sp.setAdapter(adapter);
 
+        sp.setOnItemSelectedListener(this);
+
+//        //Enrolled Button Pressed
+//        enrollButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                CourseLog item = (CourseLog) sp.getSelectedItem();
+//
+//                int courseId = ((CourseLog) sp.getSelectedItem()).getCourseID();
+//
+//                //adding the new enrollment into database
+//                if(!enrollmentList.contains(courseId)){
+//                    EnrollLog newEnroll = new EnrollLog(userId.get(), courseId);
+//                    EnrollDAO enrollmentDAO = enrollDAO;
+//                    enrollmentDAO.insert(newEnroll);
+//
+//                    //Notifies that user was enrolled in course
+//                    Toast.makeText(getApplicationContext(), "Successfully Enrolled" + item.toString(), Toast.LENGTH_SHORT).show();
+//                }else{
+//                    Toast.makeText(getApplicationContext(), "Already Enrolled " + item.toString(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        final String text = parent.getItemAtPosition(position).toString();
+
         //Enrolled Button Pressed
         enrollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CourseLog item = (CourseLog) sp.getSelectedItem();
-
-                int courseId = ((CourseLog) sp.getSelectedItem()).getCourseID();
+                CourseLog selectedCourse = courseDAO.getCourseFromTitle(text);
+                int courseId = selectedCourse.getCourseID();
 
                 //adding the new enrollment into database
                 if(!enrollmentList.contains(courseId)){
@@ -150,21 +173,16 @@ public class EnrollCourseActivity extends AppCompatActivity {
                     enrollmentDAO.insert(newEnroll);
 
                     //Notifies that user was enrolled in course
-                    Toast.makeText(getApplicationContext(), "Successfully Enrolled" + item.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Successfully Enrolled in " + text, Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getApplicationContext(), "Already Enrolled " + item.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Already Enrolled in " + text, Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
     }
 
-    //Arrays for both Course and Enroll
-    List<CourseLog> getCourseArray(){
-        return courseDAO.getCourseLog();
-    }
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
-    List<EnrollLog> getEnrollArray(){
-        return enrollDAO.getEnrollByUserId(userId.get());
     }
 }

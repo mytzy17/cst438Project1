@@ -39,7 +39,8 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Create our intent
                 Intent i = new Intent(MenuActivity.this, AddCourseActivity.class);
-
+                final String[] information = getIntent().getStringArrayExtra("info");
+                i.putExtra("info", information);
                 startActivity(i);
             }
         });
@@ -49,6 +50,8 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Create our intent
                 Intent i = new Intent(MenuActivity.this, EnrollCourseActivity.class);
+                final String[] information = getIntent().getStringArrayExtra("info");
+                i.putExtra("info", information);
                 startActivity(i);
             }
         });
@@ -58,7 +61,6 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
             //Create our intent
             Intent i = new Intent(MenuActivity.this, ViewProfileActivity.class);
-
             i.putExtra("username", userName);
             i.putExtra("info", information);
             startActivity(i);

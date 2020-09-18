@@ -185,4 +185,13 @@ public class AccountDatabaseTest {
         assertEquals(exampleAccount.getFirstname(), pulledAccount.getFirstname()); // This test is successful
     }
 
+    @Test
+    public void courseDatabaseTest() {
+        CourseLog exampleCourse = new CourseLog("Instructor", "Title", "Description", "StartDate", "EndDate");
+        courseDAO.insert(exampleCourse);
+
+        List<CourseLog> pulledCourse = courseDAO.getCourseLog();
+        assertEquals(pulledCourse.get(0).getInstructor(), exampleCourse.getInstructor());
+    }
+
 }

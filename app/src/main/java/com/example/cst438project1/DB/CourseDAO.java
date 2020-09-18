@@ -34,5 +34,9 @@ public interface CourseDAO {
 
     // Get course from title
     @Query("SELECT * FROM " + CourseDatabase.COURSELOG_TABLE + " WHERE title = :courseTitle")
-    boolean getCourseFromTitle(String courseTitle);
+    CourseLog getCourseFromTitle(String courseTitle);
+
+    // Check if course title is taken
+    @Query("SELECT * FROM " + CourseDatabase.COURSELOG_TABLE + " WHERE title = :courseTitle LIMIT 1")
+    boolean courseExists(String courseTitle);
 }
