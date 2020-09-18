@@ -7,6 +7,7 @@ import androidx.room.Room;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +39,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class EnrollCourseActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Button enrollButton;
+    Button menuButton;
     private EnrollDAO enrollDAO;
     private EnrollDatabase db;
 
@@ -58,7 +60,7 @@ public class EnrollCourseActivity extends AppCompatActivity implements AdapterVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enroll_course);
-
+        final String[] information = getIntent().getStringArrayExtra("info");
         // Get the enroll database
         db = Room.databaseBuilder(getApplicationContext(), EnrollDatabase.class, EnrollDatabase.databaseName)
                 .allowMainThreadQueries()
@@ -75,6 +77,7 @@ public class EnrollCourseActivity extends AppCompatActivity implements AdapterVi
 
         //Button
         enrollButton = findViewById(R.id.enrollButton);
+        menuButton = findViewById(R.id.menuButton);
 
         userId = new AtomicInteger(-1);
         if(savedInstanceState == null){
@@ -131,27 +134,6 @@ public class EnrollCourseActivity extends AppCompatActivity implements AdapterVi
 
         sp.setOnItemSelectedListener(this);
 
-//        //Enrolled Button Pressed
-//        enrollButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                CourseLog item = (CourseLog) sp.getSelectedItem();
-//
-//                int courseId = ((CourseLog) sp.getSelectedItem()).getCourseID();
-//
-//                //adding the new enrollment into database
-//                if(!enrollmentList.contains(courseId)){
-//                    EnrollLog newEnroll = new EnrollLog(userId.get(), courseId);
-//                    EnrollDAO enrollmentDAO = enrollDAO;
-//                    enrollmentDAO.insert(newEnroll);
-//
-//                    //Notifies that user was enrolled in course
-//                    Toast.makeText(getApplicationContext(), "Successfully Enrolled" + item.toString(), Toast.LENGTH_SHORT).show();
-//                }else{
-//                    Toast.makeText(getApplicationContext(), "Already Enrolled " + item.toString(), Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
 
     }
 
@@ -177,6 +159,16 @@ public class EnrollCourseActivity extends AppCompatActivity implements AdapterVi
                 }else{
                     Toast.makeText(getApplicationContext(), "Already Enrolled in " + text, Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(EnrollCourseActivity.this, MenuActivity.class);
+                final String[] information = getIntent().getStringArrayExtra("info");
+                i.putExtra("info", information);
+                startActivity(i);
             }
         });
     }
