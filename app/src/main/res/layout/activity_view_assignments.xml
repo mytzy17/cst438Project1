@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewAssignmentsActivity">
+    tools:context=".ViewAssignmentsActivity"
+    android:orientation="vertical">
 
     <Spinner
         android:id="@+id/courseSpinner"
@@ -15,33 +16,45 @@
 
     <Button
         android:id="@+id/addButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="147dp" />
-
-    <Button
-        android:id="@+id/editButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="219dp" />
+        android:background="#3A54E6"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center_horizontal"
+        android:text="Add Assignment"
+        android:textColor="#08D8F3"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="303dp" />
+        android:background="#6470B5"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center_horizontal"
+        android:text="Delete Assignment"
+        android:textColor="#08D8F3"
+        android:textSize="24sp" />
 
     <Button
-        android:id="@+id/mainMenuButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/editButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="470dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:background="#3A54E6"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center_horizontal"
+        android:text="Edit Assignment"
+        android:textColor="#08D8F3"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/returnButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6470B5"
+        android:fontFamily="@font/bungee_inline"
+        android:gravity="center_horizontal"
+        android:text="Return"
+        android:textColor="#08D8F3"
+        android:textSize="24sp" />
+</LinearLayout>
