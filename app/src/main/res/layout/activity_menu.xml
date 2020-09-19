@@ -41,7 +41,7 @@
     android:textSize="24sp" />
 
     <Button
-        android:id="@+id/editCourse"
+        android:id="@+id/viewCourse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#3A54E6"

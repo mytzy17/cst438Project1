@@ -23,13 +23,13 @@ public class AssignmentLog {
     private String dueDate;
 
     @ColumnInfo(name = "categoryId")
-    private String categoryId;
+    private int categoryId;
 
     @ColumnInfo(name = "courseId")
-    private String courseId;
+    private int courseId;
 
 
-    public AssignmentLog(String details, double maxScore, double earnedScore, String dueDate, String categoryId, String courseId) {
+    public AssignmentLog(String details, double maxScore, double earnedScore, String dueDate, int categoryId, int courseId) {
         this.details = details;
         this.maxScore = maxScore;
         this.earnedScore = earnedScore;
@@ -78,19 +78,19 @@ public class AssignmentLog {
         this.dueDate = dueDate;
     }
 
-    public String getCategoryId() {
+    public int getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(String categoryId) {
+    public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
 
-    public String getCourseId() {
+    public int getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setCourseId(int courseId) {
         this.courseId = courseId;
     }
 }

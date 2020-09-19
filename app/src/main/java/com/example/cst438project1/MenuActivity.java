@@ -18,6 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class MenuActivity extends AppCompatActivity {
 
     Button enrollButton;
+    Button selectCourseButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class MenuActivity extends AppCompatActivity {
         Button profileButton = findViewById(R.id.profileButton);
         Button addCourseButton = findViewById(R.id.addCourse);
         enrollButton = findViewById(R.id.enrollButton);
+        selectCourseButton = findViewById(R.id.viewCourse);
 
         final String[] information = getIntent().getStringArrayExtra("info");
         final String userName = information[0];
@@ -64,6 +66,17 @@ public class MenuActivity extends AppCompatActivity {
             final String[] information = getIntent().getStringArrayExtra("info");
             i.putExtra("info", information);
             startActivity(i);
+            }
+        });
+
+        // Intent to switch to SelectCourseActivity
+        selectCourseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MenuActivity.this, SelectCourseActivity.class);
+                final String[] information = getIntent().getStringArrayExtra("info");
+                i.putExtra("info", information);
+                startActivity(i);
             }
         });
 
