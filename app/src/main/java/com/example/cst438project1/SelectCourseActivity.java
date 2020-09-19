@@ -72,7 +72,7 @@ public class SelectCourseActivity extends AppCompatActivity implements AdapterVi
         //assert information != null;
         String username = information[0];
         AccountLog userAccount = accountDAO.getUserByName(username);
-        int userID = userAccount.getAccountId()-1;
+        int userID = userAccount.getAccountId();
         List<EnrollLog> enrolledCourses = enrollDAO.getEnrollByUserId(userID);
 
         // If list is 0

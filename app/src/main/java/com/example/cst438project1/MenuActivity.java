@@ -56,7 +56,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MenuActivity.this, EnrollCourseActivity.class);
-                final String[] information = getIntent().getStringArrayExtra("info");
+//                final String[] information = getIntent().getStringArrayExtra("info");
                 i.putExtra("info", information);
                 startActivity(i);
             }

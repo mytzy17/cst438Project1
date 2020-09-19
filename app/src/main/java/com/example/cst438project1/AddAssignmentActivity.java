@@ -96,7 +96,7 @@ public class AddAssignmentActivity extends AppCompatActivity {
                 mAssignmentDAO.insert(newAssignment);
 
                 Toast.makeText(getApplicationContext(), "Assignment created successfully", Toast.LENGTH_SHORT).show();
-                
+
                 final String text = getIntent().getStringExtra("courseName");
 
                 Intent i = new Intent(AddAssignmentActivity.this, ViewCourseActivity.class);
