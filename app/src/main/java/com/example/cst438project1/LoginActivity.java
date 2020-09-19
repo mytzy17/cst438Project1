@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                 /**
                  * Gets the info from the Account DB
                  */
+
                 boolean getAccount = accountLogDAO.findCredentials(userName, passWord);
                 AccountLog testUser = accountLogDAO.findAccount(userName, passWord);
 

@@ -130,13 +130,6 @@ public class ViewCourseActivity extends AppCompatActivity {
             assignmentDAO.insert(newAssignment2);
         }
 
-
-
-
-
-
-
-
         // Categories Button
         categoriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,9 +153,9 @@ public class ViewCourseActivity extends AppCompatActivity {
     // Method to handle intents and seques
     public void segue(Intent destination) {
         final String [] information = getIntent().getStringArrayExtra("info");
-        final String courseID = getIntent().getStringExtra("courseName");
+        final String courseName = getIntent().getStringExtra("courseName");
         destination.putExtra("info", information);
-        destination.putExtra("courseName", courseID);
+        destination.putExtra("courseName", courseName);
         startActivity(destination);
     }
 }

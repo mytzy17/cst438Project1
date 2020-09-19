@@ -20,7 +20,6 @@
         <activity android:name=".AddCourseActivity" />
         <activity android:name=".EnrollCourseActivity" />
         <activity android:name=".ViewGradeActivity" />
-        <activity android:name=".AddGradeActivity" />
         <activity android:name=".ViewAssignmentActivity" />
         <activity android:name=".AddAssignmentActivity" />
         <activity android:name=".CreateAccountActivity" />
