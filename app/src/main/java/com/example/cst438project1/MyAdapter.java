@@ -1,6 +1,7 @@
 package com.example.cst438project1;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
@@ -22,33 +23,42 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private static final String TAG = "MyAdapter";
-    private ArrayList<String> categoryTitle = new ArrayList<>();
-    private ArrayList<String> assignmentTitle = new ArrayList<>();
-    private ArrayList<String> scores = new ArrayList<>();
-    private Context context;
+    private ArrayList<String> mCategoryTitle = new ArrayList<>();
+    private ArrayList<String> mAssignmentTitle = new ArrayList<>();
+    private ArrayList<String> mScores = new ArrayList<>();
+    private Context mContext;
 
     public MyAdapter(Context context, ArrayList<String> categoryTitle, ArrayList<String> assignmentTitle, ArrayList<String> scores) {
-
+        mCategoryTitle = categoryTitle;
+        mAssignmentTitle = assignmentTitle;
+        mScores = scores;
+        mContext = context;
     }
 
 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.gradeCategory.setText(mCategoryTitle.get(position));
+        holder.assignment.setText(mAssignmentTitle.get(position));
+        holder.score.setText(mScores.get(position));
+
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mCategoryTitle.size();
     }
 
-    private class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView gradeCategory;
         TextView assignment;
         TextView score;
