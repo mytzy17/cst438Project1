@@ -58,8 +58,8 @@ public class ViewCourseActivity extends AppCompatActivity {
 
 
 
-        categoriesButton = findViewById(R.id.CategoriesButton);
-        menuButton = findViewById(R.id.mainMenuButton);
+        categoriesButton = findViewById(R.id.categoriesButton);
+        menuButton = findViewById(R.id.menuButton);
         assignmentsButton = findViewById(R.id.assignmentsButton);
         courseTitle = (TextView) findViewById(R.id.courseTitle);
         courseInstructor = (TextView) findViewById(R.id.courseInstructor);
@@ -130,6 +130,35 @@ public class ViewCourseActivity extends AppCompatActivity {
             assignmentDAO.insert(newAssignment2);
         }
 
+        int courseRealID = selectedCourse.getCourseID();
+        List<AssignmentLog> assignmentsAndCategories = assignmentDAO.getAssignmentsByCourseId(courseRealID);
+
+        ArrayList<String> assignmentTitles = new ArrayList<>();
+        ArrayList<String> categoryTitles = new ArrayList<>();
+        ArrayList<String> scores = new ArrayList<>();
+        for (AssignmentLog iterator : assignmentsAndCategories) {
+            assignmentTitles.add(iterator.getDetails());
+
+            int categoryID = iterator.getCategoryId();
+            GradeLog gradeCategory = gradeDAO.getGradeWithId(categoryID);
+            //String category = gradeCategory.getTitle();
+            categoryTitles.add("Category");
+
+            double maxScore = iterator.getMaxScore();
+            double earnedScore = iterator.getEarnedScore();
+
+            String total = earnedScore + "/" + maxScore;
+            scores.add(total);
+        }
+
+        initRecyclerView(assignmentTitles, categoryTitles, scores);
+
+
+
+
+
+
+
         // Categories Button
         categoriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,9 +182,16 @@ public class ViewCourseActivity extends AppCompatActivity {
     // Method to handle intents and seques
     public void segue(Intent destination) {
         final String [] information = getIntent().getStringArrayExtra("info");
-        final String courseName = getIntent().getStringExtra("courseName");
+        final String courseID = getIntent().getStringExtra("courseName");
         destination.putExtra("info", information);
-        destination.putExtra("courseName", courseName);
+        destination.putExtra("courseName", courseID);
         startActivity(destination);
+    }
+
+    private void initRecyclerView(ArrayList<String> assignmentTitles, ArrayList<String> categoryTitles, ArrayList<String> scores) {
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        MyAdapter myAdapter = new MyAdapter(this, assignmentTitles, categoryTitles, scores);
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }

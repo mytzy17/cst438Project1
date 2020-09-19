@@ -51,14 +51,23 @@ public class EnrollCourseActivity extends AppCompatActivity implements AdapterVi
     private CourseDAO courseDAO;
     private CourseDatabase db2;
 
-    AtomicInteger userId;
+    private AccountDAO accountDAO;
+    private AppDatabase dbAccount;
+
+    //AtomicInteger userId;
     List<Boolean> enrolled;
     HashSet<Integer> enrollmentList = new HashSet<Integer>();
+
+
+    final String[] information = getIntent().getStringArrayExtra("info");
+    String userName = information[0];
+    AccountLog userAccount = accountDAO.getUserByName(userName);
+    int userID = userAccount.getAccountId();
 
     //Arrays for both Course and Enroll
 
     List<EnrollLog> getEnrollArray(){
-        return enrollDAO.getEnrollByUserId(userId.get());
+        return enrollDAO.getEnrollByUserId(userID);
     }
 
     @Override
@@ -81,17 +90,18 @@ public class EnrollCourseActivity extends AppCompatActivity implements AdapterVi
 
         courseDAO = db2.getCourseDAO();
 
+        dbAccount = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, AppDatabase.databaseName)
+                .allowMainThreadQueries()
+                .build();
+        accountDAO = dbAccount.getAccountDAO();
+
         //Button
         enrollButton = findViewById(R.id.enrollButton);
         menuButton = findViewById(R.id.menuButton);
 
-        userId = new AtomicInteger(-1);
-        if(savedInstanceState == null){
-            Bundle extras = getIntent().getExtras();
-            if(extras != null){
-                userId.set(extras.getInt("userId"));
-            }
-        }
+
+
+
 
         //Lists
         List<CourseLog> courses = courseDAO.getCourseLog();
@@ -156,7 +166,7 @@ public class EnrollCourseActivity extends AppCompatActivity implements AdapterVi
 
                 //adding the new enrollment into database
                 if(!enrollmentList.contains(courseId)){
-                    EnrollLog newEnroll = new EnrollLog(userId.get(), courseId);
+                    EnrollLog newEnroll = new EnrollLog(userID, courseId);
                     EnrollDAO enrollmentDAO = enrollDAO;
                     enrollmentDAO.insert(newEnroll);
 
