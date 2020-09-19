@@ -53,20 +53,21 @@ public class ViewCategoriesActivity extends AppCompatActivity {
         deleteGradeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ViewCategoriesActivity.this, ViewCourseActivity.class);
-//                final String courseName = getIntent().getStringExtra("courseName");
-//                GradeLog grade = gradeDAO.getGradeWithTitle(courseName);
+                Intent i = new Intent(ViewCategoriesActivity.this, DeleteCategoryActivity.class);
+
+                final String information = getIntent().getStringExtra("info");
+                i.putExtra("info", information);
                 startActivity(i);
             }
         });
 
         Button menuButton = findViewById(R.id.mainMenuButton);
-        deleteGradeButton.setOnClickListener(new View.OnClickListener() {
+        menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ViewCategoriesActivity.this, MenuActivity.class);
-                final String[] courseID = getIntent().getStringArrayExtra("courseID");
-                i.putExtra("courseID", courseID);
+                final String information = getIntent().getStringExtra("info");
+                i.putExtra("info", information);
                 startActivity(i);
             }
         });

@@ -58,8 +58,8 @@ public class ViewCourseActivity extends AppCompatActivity {
 
 
 
-        categoriesButton = findViewById(R.id.categoriesButton);
-        menuButton = findViewById(R.id.menuButton);
+        categoriesButton = findViewById(R.id.CategoriesButton);
+        menuButton = findViewById(R.id.mainMenuButton);
         assignmentsButton = findViewById(R.id.assignmentsButton);
         courseTitle = (TextView) findViewById(R.id.courseTitle);
         courseInstructor = (TextView) findViewById(R.id.courseInstructor);
