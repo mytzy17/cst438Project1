@@ -31,6 +31,8 @@ public class CourseLog {
     @ColumnInfo(name = "endDate") //
     private String endDate;
 
+    public CourseLog() { }
+
     public CourseLog(String instructor, String title, String desc, String startDate, String endDate) {
         this.instructor = instructor;
         this.title = title;
