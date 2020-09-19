@@ -4,6 +4,13 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ *
+ * class for creating the Account object
+ * @PrimaryKey: mAccountId
+ * Gives us username, password, first and last names
+ */
+
 @Entity(tableName = AppDatabase.ACCOUNTLOG_TABLE)
 public class AccountLog {
 

@@ -1,4 +1,3 @@
-//User will be able to register and have an account ready to go
 package com.example.cst438project1;
 
 import androidx.appcompat.app.AlertDialog;
@@ -17,6 +16,11 @@ import com.example.cst438project1.DB.AccountLog;
 import com.example.cst438project1.DB.AppDatabase;
 import com.example.cst438project1.DB.CourseDAO;
 import com.example.cst438project1.DB.CourseDatabase;
+
+/**
+ * CreateAccountActivity enables users to create an account
+ * and input firstname, lastname, username, and password.
+ */
 
 public class CreateAccountActivity extends AppCompatActivity {
 
@@ -57,8 +61,6 @@ public class CreateAccountActivity extends AppCompatActivity {
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Create the variables
-
                 String firstName = firstname.getText().toString();
                 String lastName = lastname.getText().toString();
                 String userName = username.getText().toString();
@@ -75,11 +77,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 }
 
                 //Info comes from AccountLog, user info
-                //AccountLog user = AppDatabase.getAppDatabase(CreateAccountActivity.this).getAccountDAO().getUserByName(userName);
                 AccountLog user = new AccountLog(userName,passWord , firstName, lastName);
-
-                // Inserting test account into database
-                //accountLogDAO.insert(user);
 
                 boolean accountExistsAlready = accountLogDAO.findCredentials(userName, passWord);
 
@@ -88,13 +86,9 @@ public class CreateAccountActivity extends AppCompatActivity {
                     AccountLog newUser = new AccountLog(userName, passWord, firstName, lastName);
                     accountLogDAO.insert(newUser);
 
-                    //Log Record needed I think, code below
-
                     //notifies the user that their account has been created
                     Toast.makeText(getApplicationContext(), "Account created successfully", Toast.LENGTH_SHORT).show();
                     finish();
-//                    Intent i = new Intent(CreateAccountActivity.this, LoginActivity.class);
-//                    startActivity(i);
                 }else{
                     //user already exists
                     AlertDialog.Builder builder = new AlertDialog.Builder(CreateAccountActivity.this);

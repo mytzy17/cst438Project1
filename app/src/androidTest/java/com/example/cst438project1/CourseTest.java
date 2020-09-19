@@ -6,11 +6,11 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.test.platform.app.InstrumentationRegistry;
 
-import com.example.cst438project1.DB.AccountDAO;
-import com.example.cst438project1.DB.AppDatabase;
+import com.example.cst438project1.DB.CourseDAO;
+import com.example.cst438project1.DB.CourseDatabase;
+import com.example.cst438project1.DB.CourseLog;
 import com.example.cst438project1.DB.EnrollDAO;
 import com.example.cst438project1.DB.EnrollDatabase;
-import com.example.cst438project1.DB.EnrollLog;
 
 import org.junit.After;
 import org.junit.Before;
@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-public class EnrollTest {
+public class CourseTest {
     @Test
     public void useAppContext() {
         // Context of the app under test.
@@ -30,17 +30,17 @@ public class EnrollTest {
     }
 
     // Variable declarations for tests
-    private EnrollDAO enrollDAO;
-    private EnrollDatabase db;
+    private CourseDAO mCourseDAO;
+    private CourseDatabase db;
 
     @Before
     public void createDatabase() {
         //Create a room database
-        db = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(), EnrollDatabase.class)
+        db = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(), CourseDatabase.class)
                 .allowMainThreadQueries()
                 .build();
 
-        enrollDAO = db.getEnrollDAO();
+        mCourseDAO = db.getCourseDAO();
     }
 
     @Before
@@ -55,19 +55,22 @@ public class EnrollTest {
     }
 
     @Test
-    public void setEnrollment(){
-        //Asserts that user enrolls the course that are accessable
-        EnrollLog enrollment = new EnrollLog();
-        enrollment.setCourseId(438);
-        enrollment.setUserId(17);
+    public void createCourse(){
+        CourseLog course = new CourseLog();
 
-        assertTrue(enrollment.getCourseId() == 438 && enrollment.getUserId() == 17);
+        assertNotNull(course);
     }
 
     @Test
-    public void createEnrollment(){
-        EnrollLog enrollment = new EnrollLog();
-        assertNotNull(enrollment);
-    }
+    public void setCourse(){
+        CourseLog course = new CourseLog();
+        course.setCourseID(438);
+        course.setDesc("Software Engineering");
+        course.setTitle("CST 438");
+        course.setInstructor("Drew");
 
+        assertTrue(course.getCourseID() == 438 &&
+                course.getDesc() == "Software Engineering" && course.getTitle() == "CST 438"
+                && course.getInstructor() == "Drew");
+    }
 }

@@ -8,6 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * ViewProfileActivity enables the user to see their
+ * details and be able to access the EditProfileActivity
+ */
+
 public class ViewProfileActivity extends AppCompatActivity {
 
     @Override
@@ -18,6 +23,7 @@ public class ViewProfileActivity extends AppCompatActivity {
         TextView usernameTextView = findViewById(R.id.usernameTextView);
         TextView fullNameTextView = findViewById(R.id.fullName);
 
+        //Information array from previous activity
         final String[] information = getIntent().getStringArrayExtra("info");
 
         final String userName = information[0];
@@ -31,20 +37,20 @@ public class ViewProfileActivity extends AppCompatActivity {
         Button mainMenuButton = findViewById(R.id.menuButton);
         Button editProfileButton = findViewById(R.id.editProfileButton);
 
+
         mainMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Create our intent
                 Intent i = new Intent(ViewProfileActivity.this, MenuActivity.class);
                 i.putExtra("info", information);
                 startActivity(i);
             }
         });
 
+
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Create our intent
                 Intent i = new Intent(ViewProfileActivity.this, EditProfileActivity.class);
                 i.putExtra("info", information);
                 startActivity(i);

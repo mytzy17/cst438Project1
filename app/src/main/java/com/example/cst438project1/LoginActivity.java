@@ -14,6 +14,11 @@ import com.example.cst438project1.DB.AccountDAO;
 import com.example.cst438project1.DB.AccountLog;
 import com.example.cst438project1.DB.AppDatabase;
 
+/**
+ * LoginActivity enables users to login into their account
+ * and be able to access MenuActivity.
+ */
+
 public class LoginActivity extends AppCompatActivity {
 
     Button login;
@@ -43,30 +48,25 @@ public class LoginActivity extends AppCompatActivity {
                 String userName = username.getText().toString();
                 String passWord = password.getText().toString();
 
-                //Gets the info from the DB
-                //AccountDAO userDAO = AppDatabase.getAppDatabase(LoginActivity.this).getAccountDAO();
-                //Believe it is findAccount and not findCredentials (not sure)
+                /**
+                 * Gets the info from the Account DB
+                 */
                 boolean getAccount = accountLogDAO.findCredentials(userName, passWord);
                 AccountLog testUser = accountLogDAO.findAccount(userName, passWord);
+
                 if(!getAccount){
                     //user cannot login in
-                    Toast.makeText(getApplicationContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();
-                    //finish();
-                    System.out.println(userName);
-                    System.out.println(passWord);
-                    System.out.println();
-                    System.out.println(testUser.getUsername());
-                    System.out.println(testUser.getPassword());
+                    Toast.makeText(getApplicationContext(), "Invalid username or password", Toast.LENGTH_SHORT).show();;
                 }else{
                     System.out.println("IT WORKED!");
                     Intent i = new Intent(LoginActivity.this, MenuActivity.class);
+
                     AccountLog user = accountLogDAO.findAccount(userName, passWord);
+
                     String[] info = {user.getUsername(), user.getFirstname(), user.getLastname(), user.getPassword()};
                     i.putExtra("username", user.getAccountId());
                     i.putExtra("info", info);
-//                    i.putExtra("fName", user.getFirstname());
-//                    i.putExtra("lName", user.getLastname());
-//                    i.putExtra("password", passWord);
+
                     startActivity(i);
 
                 }

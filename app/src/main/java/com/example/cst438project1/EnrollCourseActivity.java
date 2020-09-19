@@ -36,6 +36,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * EnrollCourseActivity enables users to enroll in a class that was created
+ * in the AddCourseActivity.
+ */
+
 public class EnrollCourseActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Button enrollButton;
@@ -61,6 +66,7 @@ public class EnrollCourseActivity extends AppCompatActivity implements AdapterVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enroll_course);
         final String[] information = getIntent().getStringArrayExtra("info");
+
         // Get the enroll database
         db = Room.databaseBuilder(getApplicationContext(), EnrollDatabase.class, EnrollDatabase.databaseName)
                 .allowMainThreadQueries()

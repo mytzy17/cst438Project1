@@ -1,4 +1,3 @@
-//HomePage Activity: User will be able either register, login, view logs, or exit App
 package com.example.cst438project1;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +11,10 @@ import android.widget.Button;
 
 import com.example.cst438project1.DB.AccountDAO;
 import com.example.cst438project1.DB.AppDatabase;
+
+/**
+ * This activity enables the user to access the create account
+ */
 
 public class MainActivity extends AppCompatActivity {
     private AccountDAO accountLogDAO;
@@ -33,10 +36,7 @@ public class MainActivity extends AppCompatActivity {
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Will take us to the create account activity now
                 Log.d("MainActivity", "CreateAccount Activity was called");
-
-                //Create our intent
                 Intent i = new Intent(MainActivity.this, CreateAccountActivity.class);
                 startActivity(i);
             }
@@ -48,24 +48,11 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Will take us to the Login Activity
                 Log.d("LoginActivity", "Login Activity was called");
                 Intent i = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(i);
             }
         });
-
-//        //User will be taken to the View
-//        Button viewLog = findViewById(R.id.viewLogs);
-//        viewLog.setOnClickListener((new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //Will take us to the View Log Activity
-//                Log.d("ViewLogActivity", "ViewLog Activity was called");
-//                Intent i = new Intent(MainActivity.this, ViewProfileActivity.class);
-//                startActivity(i);
-//            }
-//        }));
 
         Button exitButton = findViewById(R.id.exitApp);
         exitButton.setOnClickListener(new View.OnClickListener() {

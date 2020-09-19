@@ -15,6 +15,11 @@ import com.example.cst438project1.DB.AppDatabase;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * MenuActivity enables users to access AddCourses,
+ * EnrollCourses, ViewCourseActivity, View Assignments,
+ * Grades, ViewProfile and Logout
+ */
 public class MenuActivity extends AppCompatActivity {
 
     Button enrollButton;
@@ -39,7 +44,6 @@ public class MenuActivity extends AppCompatActivity {
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Create our intent
                 Intent i = new Intent(MenuActivity.this, AddCourseActivity.class);
                 final String[] information = getIntent().getStringArrayExtra("info");
                 i.putExtra("info", information);
@@ -47,10 +51,10 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+
         enrollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Create our intent
                 Intent i = new Intent(MenuActivity.this, EnrollCourseActivity.class);
                 final String[] information = getIntent().getStringArrayExtra("info");
                 i.putExtra("info", information);
@@ -61,7 +65,6 @@ public class MenuActivity extends AppCompatActivity {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //Create our intent
             Intent i = new Intent(MenuActivity.this, ViewProfileActivity.class);
             final String[] information = getIntent().getStringArrayExtra("info");
             i.putExtra("info", information);
