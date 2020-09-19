@@ -4,6 +4,12 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ * class for creating the Course object
+ * @Primary Key: CourseID
+ * Gives the Instructor, CourseTitle, course description, start and end dates
+ */
+
 @Entity(tableName = CourseDatabase.COURSELOG_TABLE)
 public class CourseLog {
     @PrimaryKey(autoGenerate = true)

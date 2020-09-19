@@ -4,6 +4,13 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ *
+ * class for creating the AssignmentGrade object
+ * @PrimaryKey: mAssignmentGradeId
+ * Gives us grade, assignmentId, studentId, courseId, dateEarned, gradeId
+ */
+
 @Entity(tableName = AssignmentGradeDatabase.ASSIGNMENTGRADELOG_TABLE)
 public class AssignmentGradeLog {
     @PrimaryKey(autoGenerate = true)

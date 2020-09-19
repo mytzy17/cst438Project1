@@ -5,6 +5,13 @@ import androidx.room.Database;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ * class for creating the Enroll object
+ * @takes in the userId foreign key from Account table
+ * @takes in the courseId foreign key from Course table
+ * used to see which students are enrolled in each course and the date of their enrollment
+ */
+
 @Entity(tableName = EnrollDatabase.ENROLLMENTLOG_TABLE)
 
 public class EnrollLog {

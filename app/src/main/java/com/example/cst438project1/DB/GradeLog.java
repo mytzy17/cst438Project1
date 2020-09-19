@@ -4,6 +4,12 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ * class for creating the Grade object
+ * @Primary Key: mGradeId
+ * Gives the title, weight, assignedDate, categoryID
+ */
+
 @Entity(tableName = GradeDatabase.GRADE_LOG)
 public class GradeLog {
 
