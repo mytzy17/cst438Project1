@@ -142,7 +142,7 @@ public class ViewCourseActivity extends AppCompatActivity {
             int categoryID = iterator.getCategoryId();
             GradeLog gradeCategory = gradeDAO.getGradeWithId(categoryID);
             //String category = gradeCategory.getTitle();
-            categoryTitles.add("category");
+            categoryTitles.add("Category");
 
             double maxScore = iterator.getMaxScore();
             double earnedScore = iterator.getEarnedScore();
