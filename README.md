@@ -1,8 +1,10 @@
 # CST438-Project 1
 **Work Harder Grade Tracker** is an android app that allows users to track their grades.
 
-Submitted by: **Mytzy Escalante, Mustafa Memon, Christopher Garcia**. 
+Submitted by: **Mytzy Escalante, Mustafa Memon, Christopher Garcia**.
+
 Time spent: **12 hours per week (3 weeks in total)**   
+
 ## User Stories
 The following **required** functionality is completed:  
 * [ ] User can **login and review their grades**. 
