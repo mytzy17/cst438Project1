@@ -17,8 +17,8 @@ The following **MUST HAVES** were used:
 >How it will be tested: Unit tests to see if username/password exists. 
 **User Story**: Login System (Mytzy). 
 >User log in and can track grades.  
->How it will be tested: Unit tests for username verification and password verification. 
-**User Story**: Created DB and Daos (Christopher/Mytzy). 
+>How it will be tested: Unit tests for username verification and password verification.   
+**User Story**: Created DB and Daos (Christopher/Mytzy).  
 >User can save grades to be able to see them later.  
 >How it will be tested: Unit test to see if the database is updated when we add items to it.  
 ## Iteration 2 (). 
