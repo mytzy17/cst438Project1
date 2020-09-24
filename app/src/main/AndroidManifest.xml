@@ -12,6 +12,9 @@
         <activity android:name=".EditAssignmentActivity"></activity>
         <activity android:name=".ViewAssignmentsActivity" />
         <activity android:name=".ViewCategoriesActivity" />
+        <activity android:name=".AddCategoryActivity" />
+        <activity android:name=".EditCategoryActivity" />
+        <activity android:name=".DeleteCategoryActivity" />
         <activity android:name=".SelectCourseActivity" />
         <activity android:name=".ViewCourseActivity" />
         <activity android:name=".MenuActivity" />
@@ -21,7 +24,6 @@
         <activity android:name=".AddCourseActivity" />
         <activity android:name=".EnrollCourseActivity" />
         <activity android:name=".ViewGradeActivity" />
-        <activity android:name=".AddGradeActivity" />
         <activity android:name=".ViewAssignmentActivity" />
         <activity android:name=".AddAssignmentActivity" />
         <activity android:name=".CreateAccountActivity" />

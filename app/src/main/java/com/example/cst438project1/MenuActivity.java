@@ -20,6 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * EnrollCourses, ViewCourseActivity, View Assignments,
  * Grades, ViewProfile and Logout
  */
+
 public class MenuActivity extends AppCompatActivity {
 
     Button enrollButton;
