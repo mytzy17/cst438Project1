@@ -52,17 +52,6 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/viewGradeList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#6470B5"
-        android:fontFamily="@font/bungee_inline"
-        android:gravity="center_horizontal"
-        android:text="View Assignments/Grades"
-        android:textColor="#08D8F3"
-        android:textSize="24sp" />
-
-    <Button
         android:id="@+id/profileButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

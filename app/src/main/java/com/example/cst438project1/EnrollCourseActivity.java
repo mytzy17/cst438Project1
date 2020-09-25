@@ -74,7 +74,7 @@ public class EnrollCourseActivity extends AppCompatActivity implements AdapterVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enroll_course);
-        final String[] information = getIntent().getStringArrayExtra("info");
+//        final String[] information = getIntent().getStringArrayExtra("info");
 
         // Get the enroll database
         db = Room.databaseBuilder(getApplicationContext(), EnrollDatabase.class, EnrollDatabase.databaseName)
