@@ -45,6 +45,9 @@ The following **MUST HAVES** were used:
 >>As a user I want to be able to update my course information.  
 >>How it will be tested: Unit test to see if updated are reflected in the database.  
 
+**User Story**:  Add, edit & delete Grade category (Mustafa). 
+>>As a user I want to be able to add, edit and delete different grade categories - like adding an exam category. 
+
 **Not able to complete:**
 **Display / Edit Grade.** 
 >>User is able to see and edit their grade.  
