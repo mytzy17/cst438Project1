@@ -30,8 +30,9 @@ The following **MUST HAVES** were used:
 >How it will be tested: Unit test to see if the database is updated when we add items to it.  
 
 ## Iteration 2 (). 
-**User Story**: Edit/View User (Mustafa). 
->User is able to update their personal information. 
+**User Story**: Edit/View User Profile (Mustafa). 
+>User is able to view their information.
+>User is able to update their account password.
 
 **User Story**: Display User/Course Information  (Mustafa/Christopher).
 >User is able to see their information to review my courses.
