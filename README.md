@@ -45,7 +45,7 @@ The following **MUST HAVES** were used:
 >>As a user I want to be able to update my course information.  
 >>How it will be tested: Unit test to see if updated are reflected in the database.  
 
-##Not able to complete:
+**Not able to complete:**
 **Display / Edit Grade.** 
 >>User is able to see and edit their grade.  
 **Delete/Edit Assignment.**
